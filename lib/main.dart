@@ -45,7 +45,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String? tName ;
   int _currentIndex = 0;
-  final List _pages = [const InformationScreen(),const DesignScreen(),const ResponseScreen(),const DictionaryScreen()];
+  final List _pages = [const InformationScreen(), const DesignScreen(usernameValue: '', mobileValue: '', emailValue: '',),const ResponseScreen(),const DictionaryScreen()];
 
   void indexUpdate(int val){
     setState(() {
@@ -66,16 +66,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar:AppBar(
+          elevation: 0,
           title:  Text(tName == null ? '' : tName!,
               style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.blueGrey,
                   fontSize: 20)),
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.grey.shade100,
             actions: [
               IconButton(
                 icon: const Icon(Icons.arrow_back_ios_rounded),
-                color: Colors.black,
+                color: Colors.blueGrey,
                 onPressed: () {
                 },
               )

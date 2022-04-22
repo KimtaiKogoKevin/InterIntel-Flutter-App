@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
 class DesignScreen extends StatelessWidget {
-  const DesignScreen({Key? key}) : super(key: key);
+  final String usernameValue;
+  final String emailValue;
+  final String mobileValue;
+
+
+
+  const DesignScreen({Key? key , required this.usernameValue , required this.emailValue , required this.mobileValue}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: Center(
-        child:Text('DesignScreen')
+        child:Text(usernameValue)
       ),
     );
   }
