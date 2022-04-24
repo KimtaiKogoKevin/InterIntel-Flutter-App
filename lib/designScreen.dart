@@ -107,7 +107,7 @@ class _DesignScreenState extends State<DesignScreen> {
                                             padding: const EdgeInsets.all(8.0),
                                             child: ListTile(
                                               trailing: Icon(Icons.person) ,
-                                              title: Text('Username :' + widget.usernameValue,
+                                              title: Text('Username: ' + widget.usernameValue,
                                                 style: const TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
                                                 textAlign: TextAlign.center,
 
@@ -118,7 +118,7 @@ class _DesignScreenState extends State<DesignScreen> {
                                             padding: const EdgeInsets.all(8.0),
                                             child: ListTile(
                                               trailing: Icon(Icons.message),
-                                              title: Text('Email Address :' + widget.emailValue,
+                                              title: Text('Email Address: ' + widget.emailValue,
                                                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                                                 textAlign: TextAlign.center,),
                                             )
@@ -127,7 +127,7 @@ class _DesignScreenState extends State<DesignScreen> {
                                             padding: const EdgeInsets.all(8.0 ),
                                             child: ListTile(
                                               trailing: Icon(Icons.phone),
-                                              title: Text('Mobile Number : ' + widget.mobileValue,
+                                              title: Text('Mobile Number: ' + widget.mobileValue,
                                                 style: TextStyle(fontSize: 12 , fontWeight: FontWeight.bold),
                                                 textAlign: TextAlign.center,),
                                             )

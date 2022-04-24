@@ -4,7 +4,7 @@
 
     android:label="test_evaluation"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/appscreen_logo">
 
        <activity
             android:name=".MainActivity"
