@@ -16,22 +16,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Interview Test',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const SplashScreen()
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Interview Test',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+        ),
+        home: const SplashScreen());
   }
 }
 
@@ -43,73 +42,105 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String? tName ;
-  int _currentIndex = 0;
-  final List _pages = [const InformationScreen(), const DesignScreen(usernameValue: '', mobileValue: '', emailValue: '',),const ResponseScreen(),const DictionaryScreen()];
+  String? tName;
 
-  void indexUpdate(int val){
+  int _currentIndex = 0;
+  final List _pages = [
+    const InformationScreen(),
+    DesignScreen(
+      usernameValue: '',
+      mobileValue: '',
+      emailValue: '',
+    ),
+    const ResponseScreen(),
+    DictionaryScreen()
+  ];
+
+  void indexUpdate(int val) {
     setState(() {
-      _currentIndex = val ;
-      switch(val) {
-        case 0: { tName = 'Information Screen'; }
-        break;
-        case 1: { tName = 'Design Screen'; }
-        break;
-        case 2: { tName = 'Response Screen'; }
-        break;
-        case 3: { tName = 'Dictionary Screen'; }
-        break;
+      _currentIndex = val;
+      switch (val) {
+        case 0:
+          {
+            tName = 'Information Screen';
+          }
+          break;
+        case 1:
+          {
+            tName = 'Design Screen';
+          }
+          break;
+        case 2:
+          {
+            tName = 'Response Screen';
+          }
+          break;
+        case 3:
+          {
+            tName = 'Dictionary Screen';
+          }
+          break;
       } // change the index value
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar:AppBar(
+    back(BuildContext context){
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+
+    }
+
+    return Scaffold(
+      appBar: AppBar(
           elevation: 0,
-          title:  Text(tName == null ? '' : tName!,
+          title: Text(tName == null ? '' : tName!,
               style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.blueGrey,
                   fontSize: 20)),
-            backgroundColor: Colors.grey.shade100,
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.arrow_back_ios_rounded),
-                color: Colors.blueGrey,
-                onPressed: () {
-                },
-              )
-            ]),
-      body:_pages[_currentIndex],
-
+          backgroundColor: Colors.grey.shade100,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios_rounded),
+              color: Colors.blueGrey,
+              onPressed: () {
+                back(context);
+              },
+            )
+          ]),
+      body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex:_currentIndex,
-        onTap:indexUpdate,
-       selectedItemColor: Colors.grey[700],
-       selectedFontSize:13,
-       unselectedFontSize: 13,
-       iconSize:30,
-       items: const [
-         BottomNavigationBarItem(
-           label: "Information", icon: Icon(Icons.home),
-
-         ),
-
-         BottomNavigationBarItem(
-           label: "Design", icon: Icon(Icons.home),
-
-         ),
-         BottomNavigationBarItem(
-           label: "Response", icon: Icon(Icons.home),
-
-         ),
-         BottomNavigationBarItem(
-           label: "Dictionary", icon: Icon(Icons.home),
-
-         ),
-       ],),
+        currentIndex: _currentIndex,
+        onTap: indexUpdate,
+        selectedItemColor: Colors.grey[700],
+        selectedFontSize: 13,
+        unselectedFontSize: 13,
+        iconSize: 30,
+        items: const [
+          BottomNavigationBarItem(
+            label: "Information",
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            label: "Design",
+            icon: Icon(Icons.person),
+          ),
+          BottomNavigationBarItem(
+            label: "Response",
+            icon: Icon(Icons.api),
+          ),
+          BottomNavigationBarItem(
+            label: "Dictionary",
+            icon: Icon(Icons.menu_book),
+          ),
+        ],
+      ),
     );
   }
 }

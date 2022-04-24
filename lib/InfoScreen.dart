@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:test_evaluation/designScreen.dart';
 
 class InformationScreen extends StatefulWidget {
-  const InformationScreen({Key? key}) : super(key: key);
+
+
+  const InformationScreen({Key? key }) : super(key: key);
 
   @override
   State<InformationScreen> createState() => _InformationScreenState();
@@ -112,11 +114,14 @@ class _InformationScreenState extends State<InformationScreen> {
                       // If the form is valid, display a snackbar. In the real world,
                       // you'd often call a server or save the information in a database.
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
+                        const SnackBar(content: Text('Profile created')),
                       );
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder:(context)=> DesignScreen(usernameValue:username.text, mobileValue: mobile.text, emailValue: email.text,),
-                      ));
+                      setState(() {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder:(context)=> DesignScreen(usernameValue:username.text, mobileValue: mobile.text, emailValue: email.text,),
+                        ));
+                      });
+
                     }
                   },
                   child: const Text('Submit'),
